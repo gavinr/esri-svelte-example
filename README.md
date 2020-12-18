@@ -1,10 +1,10 @@
 # esri-svelte-example
 
-An example [Svelte](https://svelte.dev/) application that shows how to use [esri-loader](https://github.com/Esri/esri-loader) to load a map. [View the live app here](https://esri-svelte-example.surge.sh/).
+An example [Svelte](https://svelte.dev/) application using the ES Modules build of the ArcGIS API for JavaScript. [View the live app here](https://esri-svelte-example.surge.sh/).
 
 ## Get Started - CodeSandbox
 
-Open [this template](https://codesandbox.io/s/esri-svelte-example-syije) on CodeSandbox, click "Fork", and start tinkering!
+Open [this template](todo) on CodeSandbox, click "Fork", and start tinkering!
 
 ## Get Started - Local
 
@@ -15,7 +15,5 @@ Open [this template](https://codesandbox.io/s/esri-svelte-example-syije) on Code
 
 ## Links
 
-- [esri-loader](https://github.com/Esri/esri-loader)
 - [ArcGIS API for JavaScript](https://developers.arcgis.com/javascript/)
-- [Svelte with the ArcGIS API for JavaScript](https://odoe.net/blog/svelte-with-the-arcgis-api-for-javascript/)
 - [Esri Svelte Basemaps Example](https://github.com/jwasilgeo/esri-svelte-basemaps-example)

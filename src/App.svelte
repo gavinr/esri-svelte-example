@@ -1,25 +1,19 @@
 <script>
-  import { loadModules } from "esri-loader";
-  import { onMount } from "svelte";
+	import { onMount } from "svelte";
 
-  export let title;
-  export let centerText;
+	import Map from '@arcgis/core/Map';
+	import MapView from '@arcgis/core/views/MapView';
+	
+	export let name;
+	export let centerText;
 
-  let viewDiv; // this is set using "bind:this" down below in the HTML.
-  // For more info see:https://svelte.dev/tutorial/bind-this
-
-  // Svelte - onMount - https://svelte.dev/tutorial/onmount
-  onMount(async () => {
-    // Use esri-loader to load the EsriMap and MapView modules
-    // // https://github.com/Esri/esri-loader#usage
-    const esriLoaderOptions = { css: true };
-    const [EsriMap, MapView] = await loadModules(
-      ["esri/Map", "esri/views/MapView"],
-      esriLoaderOptions
-    );
+	let viewDiv; // this is set using "bind:this" down below in the HTML.
+	// For more info see:https://svelte.dev/tutorial/bind-this
+	
+	onMount(async () => {
 
     // Create the map
-    const map = new EsriMap({
+    const map = new Map({
       basemap: "streets"
     });
 
@@ -39,30 +33,44 @@
     view.watch("center", center => {
       const { latitude, longitude } = center;
       centerText = `Lat: ${latitude.toFixed(2)} | Lon: ${longitude.toFixed(2)}`;
-    });
-  });
+		});
+	});
 </script>
 
-<style>
-  h1 {
-    color: purple;
-  }
-  .view {
-    height: 400px;
-    width: 400px;
-  }
-</style>
+<main>
+	<h1>Hello {name}!</h1>
+	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+</main>
 
-<h1>{title}</h1>
-<p>
-  An example
-  <a href="https://svelte.dev/">Svelte</a>
-  application that shows how to use esri-loader to load a map. Check out the
-  <a href="https://github.com/gavinr/esri-svelte-example">code</a>
-  for more info!
-</p>
 <div class="view" bind:this={viewDiv} />
 
 {#if centerText}
   <p>{centerText}</p>
 {/if}
+
+<style>
+	main {
+		text-align: center;
+		padding: 1em;
+		max-width: 240px;
+		margin: 0 auto;
+	}
+
+	h1 {
+		color: #ff3e00;
+		text-transform: uppercase;
+		font-size: 4em;
+		font-weight: 100;
+	}
+
+	.view {
+    height: 400px;
+    width: 400px;
+  }
+
+	@media (min-width: 640px) {
+		main {
+			max-width: none;
+		}
+	}
+</style>
